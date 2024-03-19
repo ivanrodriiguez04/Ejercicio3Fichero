@@ -14,16 +14,20 @@
         static void Main(string[] args) 
         {
             string fichero = "C:\\Users\\csi22-irodhan\\Desktop\\ficheroPrueba.txt";
-            Console.WriteLine("En que linea deseas escribir: ");
-            int numeroLinea=Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Que desea escribir: ");
-            string nuevoTexto=Console.ReadLine();
+
+
             try
             {
-                string[] lineas=File.ReadAllLines(fichero);
+                Console.WriteLine("En que linea deseas escribir: ");
+                int numeroLinea = Convert.ToInt32(Console.ReadLine());
+                
 
-                if (numeroLinea >= 1 && numeroLinea <= fichero.Length)
+                string[] lineas=File.ReadAllLines(fichero);
+                if (numeroLinea >= 1 && numeroLinea <= lineas.Length)
                 {
+                    Console.WriteLine("Que desea escribir: ");
+                    string nuevoTexto = Console.ReadLine();
+
                     lineas[numeroLinea - 1] = nuevoTexto;
 
                     File.WriteAllLines(fichero, lineas);
